@@ -1,0 +1,15 @@
+<svg width="295.5" height="62" viewBox="0 0 295.5 62" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nebula Fitness logo"
+>
+  <title>Nebula Fitness Combination Mark</title>
+  <!-- <rect x="0" y="0" width="283" height="62" fill="#121212"/> -->
+  <g fill="#ccff00" transform="translate(0,-46)">
+   <rect x="0" y="46" width="53" height="12"/>
+   <rect x="26" y="66" width="28" height="12"/>
+   <text x="62" y="108" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="88" textLength="48" lengthAdjust="spacingAndGlyphs">N</text>
+   <rect x="119" y="46" width="11" height="62"/>
+  </g>
+  <g fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-weight="bold" transform="translate(0,-46)">
+   <text x="145" y="71" font-size="35" letter-spacing="1">NEBULA</text>
+   <text x="145" y="100" font-size="26" letter-spacing="1" opacity="0.9">FITNESS</text>
+  </g>
+</svg>
