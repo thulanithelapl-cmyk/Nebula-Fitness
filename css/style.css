@@ -90,6 +90,7 @@ header nav{
 header button {
   display: block;
   border: none;
+  cursor: pointer;
   color: var(--primary);
   font-size: 16px;
   font-weight: 500;
@@ -113,7 +114,7 @@ header button {
 
 main .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   background-color: var(--primary);
   color: white;
@@ -141,7 +142,7 @@ main .hero video {
   z-index: 0; 
 }
 
-main .text-content, .cta-row, .scroll-indicator {
+main .text-content, .cta-row {
   position: relative;
   z-index: 3;
 }
@@ -165,7 +166,7 @@ main .hero .text-content {
   margin-bottom: 32px;
  }
  
- h2 {
+ p {
    font-size: 20px;
    line-height: 1.5;
    font-weight: 400;
@@ -183,6 +184,7 @@ main .hero .cta-row {
   button {
   border: none;
   color: var(--primary);
+  cursor: pointer;
   font-size: 16px;
   font-weight: 600;
   background-color: var(--accent);
@@ -231,8 +233,10 @@ main .hero .cta-row {
  }
 }
 
+/* Removed the scroll indicator */
+/*
 main .hero .scroll-indicator {
-    visibility: hidden; /* Temporal */
+    visibility: hidden; 
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -255,6 +259,7 @@ main .hero .scroll-indicator {
     line-height: 1;
   }
   }
+*/
 
 main .why-nebula {
   padding-block: 160px;
@@ -270,13 +275,6 @@ main .why-nebula {
     font-weight: 500;
     letter-spacing: 0.16em;
     padding-bottom: 20px;
-
-    span {
-   
-      color: var(--accent);
-      font-size: 40px;
-      
-    }
   }
   
   h2 {
@@ -297,17 +295,38 @@ main .why-nebula {
 }
 
 main  .why-nebula .cards {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 
  .card {
+  display: flex;
+  flex-direction: column;
   padding: 40px;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   background-color: var(--primary);
-  width: 408px;
+  width: auto;
   min-height: 320px;
+
+   &:hover, &:active {
+   border: 1px solid rgba(204,255,0,0.30);
+   transform: translateY(-4px);
+   box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  &:hover .index {
+    color: var(--accent);
+ }
+
+ &:hover .icon {
+    width: 45px;
+ }
  
   .title {
     font-size: 24px;
@@ -328,12 +347,14 @@ main  .why-nebula .cards {
     font-size: 14px;
     font-weight: 500;
     color: var(--text-tertiary);
+    margin-top: 24px;
   }
 
   .icon {
+    padding: 0;
+    margin-bottom: auto;
     width: 40px;
-    padding-bottom: 80px;
-    padding-top: 40px;
+    height: 40px;
   }
  }
 }

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="5">
+  <meta name="viewport" content="width=devicle-width, initial-scale=1">
   
+  <!-- Review the fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -12,12 +12,21 @@
   <title>Nebula  Fitness</title>
   
   <link rel="stylesheet" href="./css/style.css">
+
+  <!-- 
+  lessons
+  1. Always check whether fonts are implemented and used
+  2. Add an explicit width for a logo incase it fails to load
+  3. Avoid using h2 in the hero for a subheadline, use it for section headings
+  4. Use the article element for cards esp if they have title, body
+  -->
 </head>
 
 <body>
   <header>
     <div class="header-left">
-      <a href="#"><img src="./assets/images/nebula-fitness-combination-mark.svg" alt="Nebula Fitness Combination Mark"/></a>
+      <!-- Figure out which width will work -->
+      <a href="#"><img src="./assets/images/nebula-fitness-combination-mark.svg" alt="Nebula Fitness"/></a>
     </div>
    
    <div class="header-right">
@@ -36,27 +45,24 @@
    <main>
     <section class="hero">
       <div>
-        <video src="" poster="/assets/images/IMG_20260825_143130.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <!-- Add video source, put back the autoplay and src attribute -->
+        <video poster="assets\images\video-poster.webp" muted loop playsinline preload="none"></video>
       </div>
       
       <div class="text-content">
         <span>NOW OPEN IN BROOKLYN · MANHATTAN · JERSEY CITY</span>
         <h1>TRAIN <br /> DIFFERENT.</h1>
-        <h2>Boutique coaching, science-backed programming, and a community that shows up. Your first week is on us.</h2>
+        <p>Boutique coaching, science-backed programming, and a community that shows up. Your first week is on us.</p>
       </div>
       
       <div class="cta-row">
          <button type="button">Start Free Trial</button> <a href="#">Watch the film <span> &rarr;</span></a>
       </div>
-      
-      <div class="scroll-indicator">
-        <span>&darr;</span>
-        <span>SCROLL</span>
-      </div> 
     </section>
 
     <section class="why-nebula">
-      <span class="eyebrow"><span>&bull;</span> The    Nebula Difference</span>
+      <!-- Use pseudo for bullet point -->
+      <span class="eyebrow">The Nebula Difference</span>
       <h2>Why Nebula</h2>
       <p>Everything you need to train smarter — and nothing you don't.</p>
       <div class="cards">
@@ -107,6 +113,6 @@
     
   </main> 
   
-  <script src="./js/main.js"></script>
+  <script src="./js/main.js" defer></script>
 </body> 
 </html>
