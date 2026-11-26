@@ -7,6 +7,16 @@
    --text-tertiary: #6E6E70;
 }
 
+/* 
+  lessons
+  1. check the browser support of the css features you used esp properties, Note: do not use nesting again, use a prefix and implement a fallback for Safari when using backdrop-filter
+  2. Avoid using 'all' in transition
+  3. Frequently used values must be made a variable
+  4. use comments to section your code
+  5. Every element should have a class name
+
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +27,7 @@ body {
   width: 100%;
   background-color: var(--primary);
   color: var(--text-primary);
+  overflow-x: hidden;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -40,7 +51,14 @@ header.scrolled {
   height: 64px;
   background: rgba(18, 18, 18, 0.72);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  header.scrolled {
+    background: rgba(18, 18, 18, 0.95);
+  }
 }
 
 header .header-left{
@@ -51,7 +69,7 @@ header .header-left{
 
 header img {
   height: 30px;
-  width: auto;
+  width: 120px;
   display: block;
 }
 
@@ -71,9 +89,9 @@ header nav{
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition:  all 150ms ease;
+    transition:  color 150ms ease;
     
-    &:hover, &:active, &.active{
+    &:hover, &:active{
       color : var(--text-primary);
       text-decoration: underline solid var(--accent) 1.5px;
       text-underline-offset: 6px;
@@ -99,11 +117,16 @@ header button {
   height: 44px;
   border-radius: 999px;
   align-self: center;
-  transition: all 150ms ease;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
   
-  &:hover, &:active {
+  &:hover {
    background-color: var(--accent-alt);
    box-shadow: 0 0 24px rgba(204,255,0,0.25);
+  }
+
+  &:active {
+    background-color: #A6CC00;
+    box-shadow: none;
   }
   
   &:focus-visible {
@@ -113,18 +136,19 @@ header button {
 }
 
 main .hero {
-  position: relative;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
   width: 100%;
   background-color: var(--primary);
   color: white;
-  padding-top: 150px;
+  padding-top: 88px;
   padding-inline: 80px;
   overflow: hidden;
-  font-family: "Montserrat", sans-serif;
   
   &::before {
-   content: "";
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -193,9 +217,14 @@ main .hero .cta-row {
   border-radius: 999px;
   padding: 0 32px;
   
-  &:hover, &:active {
+  &:hover {
    background-color: var(--accent-alt);
    box-shadow: 0 0 32px rgba(204,255,0,0.30);
+  }
+
+  &:active {
+    background-color: #A6CC00;
+    box-shadow: none;
   }
   
   &:focus-visible {
@@ -233,33 +262,6 @@ main .hero .cta-row {
  }
 }
 
-/* Removed the scroll indicator */
-/*
-main .hero .scroll-indicator {
-    visibility: hidden; 
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  
-  span {
-    color: var(--text-tertiary);
-    font-size: 14px;
-    letter-spacing: 0.16em;
-    text-transform: capitalize;
-    display: block;
-  }
-  
-  span:nth-child(1) {
-    font-size: 35px;
-    line-height: 1;
-  }
-  }
-*/
 
 main .why-nebula {
   padding-block: 160px;
@@ -275,6 +277,17 @@ main .why-nebula {
     font-weight: 500;
     letter-spacing: 0.16em;
     padding-bottom: 20px;
+
+    &::before {
+    content: "";
+    display: inline-block;
+    margin-inline-end: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
   }
   
   h2 {
